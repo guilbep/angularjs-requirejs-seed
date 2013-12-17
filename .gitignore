@@ -1,0 +1,6 @@
+components/
+vendor/
+node_modules/
+.idea/
+demo_todo.txt
+build

@@ -1,0 +1,10 @@
+{
+    "paths": {
+    },
+    "wrap"                  : true,
+    "name"                  : "main",
+    "optimize"              : "none",
+    "baseUrl"               : "./",
+    "mainConfigFile"        : "./js/main.js",
+    "out"                   : "./build/js/main-src.js"
+}

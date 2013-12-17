@@ -1,0 +1,42 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"  lang="en" id="ng-app"
+  xmlns:ng="http://angularjs.org"
+  xmlns:vc="http://www.google.com/recaptcha"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"  lang="en" id="ng-app"
+  xmlns:ng="http://angularjs.org"
+  xmlns:vc="http://www.google.com/recaptcha"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"  lang="en" id="ng-app"
+  xmlns:ng="http://angularjs.org"
+  xmlns:vc="http://www.google.com/recaptcha"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"  lang="en" id="ng-app"
+  xmlns:ng="http://angularjs.org"
+  xmlns:vc="http://www.google.com/recaptcha"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="" lang="en" id="ng-app" xmlns:ng="http://angularjs.org" xmlns:vc="http://www.google.com/recaptcha">
+  <!--<![endif]-->
+  <head>
+    <title>My application</title>
+    <link rel="icon" type="x/icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- @if NODE_ENV == 'DEVELOPMENT' -->
+    <link href="/vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    <!-- @endif -->
+    <!-- @if NODE_ENV == 'PRODUCTION' -->
+    <link href="/css/main.css" rel="stylesheet">
+    <!-- @endif -->
+    <script id="main_entry" data-main="/js/main.js?v=<!-- @echo RELEASE_TAG -->" src="/vendor/requirejs/require.js"></script>
+    <!-- @if NODE_ENV == 'DEVELOPMENT' -->
+    <script src="//localhost:35729/livereload.js"></script>
+    <!-- @endif -->
+    </script>
+  </head>
+  <body ng-controller="RootCtrl">
+    <div id="wrap" ui-view></div>
+    <span class="well" ng-bind="leroot"></span>
+    <div class="xng-include: '/partials/footer.html'"></div>
+  </body>
+</html>

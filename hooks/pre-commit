@@ -1,0 +1,3 @@
+#!/bin/sh
+grunt jsbeautifier:git-pre-commit
+

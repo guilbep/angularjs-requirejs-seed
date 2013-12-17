@@ -1,0 +1,38 @@
+{
+  "name": "angular-requirejs-seed",
+  "version": "0.0.0",
+  "homepage": "https://github.com/guilbep/angular-requirejs-seed",
+  "authors": [
+    "Pierre Guilbert <contact@pierreguilbert.com>"
+  ],
+  "description": "A seed for a real basic angular-seed using require-js",
+  "main": "index.html",
+  "keywords": [
+    "angularjs",
+    "requirejs",
+    "bower"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "latest",
+    "angular-mocks": "latest",
+    "angular-route": "latest",
+    "angular-ui-router": "latest",
+    "angular-resource": "latest",
+    "angular-cookies": "latest",
+    "requirejs": "latest",
+    "jquery": "latest",
+    "bootstrap": "latest",
+    "momentjs": "2.2.1",
+    "jasmine-jquery": "~1.5.93",
+    "jasmine": "~1.3.1"
+  }
+}

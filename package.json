@@ -1,0 +1,26 @@
+{
+  "name": "angularjs-requirejs-grunt-karma-seed",
+  "version": "0.1.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-ngmin": "0.0.3",
+    "grunt-contrib-htmlmin": "~0.1.3",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-prettify": "~0.3.4",
+    "grunt-jsbeautifier": "~0.2.4",
+    "grunt-preprocess": "~3.0.1",
+    "grunt-env": "~0.4.0",
+    "grunt-release": "~0.6.0",
+    "grunt-uncss": "~0.1.5",
+    "grunt-release-steps": "~0.3.7"
+  }
+}
