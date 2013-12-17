@@ -24,7 +24,7 @@ require.config({
         "modules": "js/modules",
 
         "angular": "vendor/angular/angular",
-        "angularMocks"   : "vendor/angular-mocks/angular-mocks",
+        "angularMocks": "vendor/angular-mocks/angular-mocks",
         "ngRoute": "vendor/angular-route/angular-route",
         "ngResource": "vendor/angular-resource/angular-resource",
         "ngCookies": "vendor/angular-cookies/angular-cookies",

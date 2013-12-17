@@ -1,13 +1,13 @@
 module.exports = function(grunt) {
 
-    var package = require('./package.json');
+    var package = require("./package.json");
     // Project configuration.
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON("package.json"),
         release: {
             options: {
                 bump: true, //default: true
-                file: 'package.json', //default: package.json
+                file: "package.json", //default: package.json
                 add: true, //default: true
                 commit: true, //default: true
                 tag: true, //default: true
@@ -15,15 +15,15 @@ module.exports = function(grunt) {
                 pushTags: true, //default: true
                 npm: false, //default: true
                 npmtag: false, //default: no tag
-                folder: 'folder/to/publish/to/npm',
-                tagName: '<%= version %>',
-                commitMessage: 'new version <%= version %>', //default: 'release <%= version %>'
-                tagMessage: 'tagging version <%= version %>', //default: 'Version <%= version %>',
+                folder: "folder/to/publish/to/npm",
+                tagName: "<%= version %>",
+                commitMessage: "new version <%= version %>", //default: "release <%= version %>"
+                tagMessage: "tagging version <%= version %>", //default: "Version <%= version %>",
                 github: false
                 // github: {
-                //     repo: '', //put your user/repo here
-                //     usernameVar: 'GITHUB_USERNAME', //ENVIRONMENT VARIABLE that contains Github username
-                //     passwordVar: 'GITHUB_PASSWORD' //ENVIRONMENT VARIABLE that contains Github password
+                //     repo: "", //put your user/repo here
+                //     usernameVar: "GITHUB_USERNAME", //ENVIRONMENT VARIABLE that contains Github username
+                //     passwordVar: "GITHUB_PASSWORD" //ENVIRONMENT VARIABLE that contains Github password
                 //  }
             }
         },
@@ -34,21 +34,21 @@ module.exports = function(grunt) {
                 RELEASE_TAG: package.version
             },
             dev: {
-                NODE_ENV: 'DEVELOPMENT'
+                NODE_ENV: "DEVELOPMENT"
             },
             prod: {
-                NODE_ENV: 'PRODUCTION'
+                NODE_ENV: "PRODUCTION"
             }
         },
         preprocess: {
             dev: {
                 files: [{
-                    'index.html': 'index.html.template'
+                    "index.html": "index.html.template"
                 }]
             },
             prod: {
                 files: [{
-                    'index.html': 'index.html.template'
+                    "index.html": "index.html.template"
                 }]
             }
         },
@@ -56,57 +56,57 @@ module.exports = function(grunt) {
             main: {
                 files: [{
                         expand: true,
-                        cwd: './partials/',
-                        src: ['**/*'],
-                        dest: 'build/partials'
+                        cwd: "./partials/",
+                        src: ["**/*"],
+                        dest: "build/partials"
                     }, {
                         expand: true,
-                        cwd: './',
-                        src: ['index.html'],
-                        dest: 'build/'
+                        cwd: "./",
+                        src: ["index.html"],
+                        dest: "build/"
                     }, {
                         expand: true,
-                        cwd: './vendor',
-                        src: ['**/*js', '*/*js'],
-                        dest: 'build/vendor'
+                        cwd: "./vendor",
+                        src: ["**/*js", "*/*js"],
+                        dest: "build/vendor"
                     },
                     //  {
                     //     expand: true,
-                    //     cwd: './css/',
-                    //     src: ['**/*'],
-                    //     dest: 'build/css/'
+                    //     cwd: "./css/",
+                    //     src: ["**/*"],
+                    //     dest: "build/css/"
                     // },
                     {
                         expand: true,
-                        cwd: './img/',
-                        src: ['**/*'],
-                        dest: 'build/img/'
+                        cwd: "./img/",
+                        src: ["**/*"],
+                        dest: "build/img/"
                     }
                 ]
             }
         },
         requirejs: {
             compile: {
-                options: grunt.file.readJSON('build-config.json')
+                options: grunt.file.readJSON("build-config.json")
             }
         },
         ngmin: {
             files: {
-                src: 'build/js/main-src.js',
-                dest: 'build/js/main-src.js'
+                src: "build/js/main-src.js",
+                dest: "build/js/main-src.js"
             }
         },
         uglify: {
             main: {
                 options: {
                     mangle: false,
-                    report: 'min',
-                    sourceMappingURL: './source-map.js',
-                    sourceMap: 'build/js/source-map.js'
+                    report: "min",
+                    sourceMappingURL: "./source-map.js",
+                    sourceMap: "build/js/source-map.js"
                 },
                 files: {
-                    'build/js/main.js': ['build/js/main-src.js'],
-                    'build/vendor/requirejs/require.js': ['vendor/requirejs/require.js']
+                    "build/js/main.js": ["build/js/main-src.js"],
+                    "build/vendor/requirejs/require.js": ["vendor/requirejs/require.js"]
                 }
             }
         },
@@ -118,64 +118,60 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: './partials/',
-                    src: ['**/*'],
-                    dest: 'build/partials'
+                    cwd: "./partials/",
+                    src: ["**/*"],
+                    dest: "build/partials"
                 }, { // Dictionary of files
-                    'build/index.html': 'index.html', // 'destination': 'source'
+                    "build/index.html": "index.html", // "destination": "source"
                 }]
             }
         },
         karma: {
             unit: {
-                autoWatch: true,
-                configFile: './test/karma-unit.conf.js',
-                singleRun: false
+                autoWatch: false,
+                configFile: "./test/karma-unit.conf.js",
+                singleRun: true
             },
             ci: {
                 autoWatch: false,
-                configFile: './test/karma-unit.conf.js',
-                browsers: ['PhantomJS']
+                singleRun: true,
+                configFile: "./test/karma-unit.conf.js",
+                browsers: ["PhantomJS"]
             },
             watch: {
-                background: true,
                 autoWatch: true,
-                configFile: './test/karma-unit.conf.js',
+                configFile: "./test/karma-unit.conf.js",
                 singleRun: false,
-                browsers: ['Chrome']
+                browsers: ["Chrome"]
             }
         },
         watch: {
             html: {
-                // files: ['*.html'],
-                files: ['**/*html', 'css/*css', 'js/**/*js'],
+                // files: ["*.html"],
+                files: ["**/*html", "css/*css", "js/**/*js"],
                 options: {
                     // Start a live reload server on the default port 35729
                     livereload: true,
                 },
             },
             scripts: {
-                files: ['js/*.js', 'js/**/*.js'],
+                files: ["js/*.js", "js/**/*.js"],
                 tasks: [],
                 options: {
                     interrupt: true
                 }
-            },
-            karma: {
-                files: ['js/**/*.js', 'test/**/*.js'],
-                tasks: ['karma:unit:run']
             }
         },
         "prettify": {
             options: {},
             html: {
                 files: [{
-                    'index.html': 'index.html'
+                    "index.html": "index.html"
                 }, {
                     expand: true,
-                    cwd: './partials/',
-                    src: ['**/*html'],
-                    dest: 'partials'
+                    cwd: "./partials/",
+                    src: ["**/*html"],
+                    dest: "partials"
                 }]
             }
         },
@@ -193,55 +189,60 @@ module.exports = function(grunt) {
         uncss: {
             dist: {
                 files: {
-                    './build/css/main.css': ['index.html']
+                    "./build/css/main.css": ["index.html"]
                 }
             }
         }
     });
 
     // set VERSION to project
-    grunt.loadNpmTasks('grunt-release-steps');
+    grunt.loadNpmTasks("grunt-release-steps");
     // preprocess the html or javascript
-    grunt.loadNpmTasks('grunt-preprocess');
-    grunt.loadNpmTasks('grunt-env');
+    grunt.loadNpmTasks("grunt-preprocess");
+    grunt.loadNpmTasks("grunt-env");
 
     // build build directory
-    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks("grunt-contrib-copy");
 
     // minify js
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-ngmin')
+    grunt.loadNpmTasks("grunt-contrib-requirejs");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-ngmin")
 
     // minify html
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks("grunt-contrib-htmlmin");
 
     // minify css and clean unused :D
-    grunt.loadNpmTasks('grunt-uncss');
+    grunt.loadNpmTasks("grunt-uncss");
 
     // watch constantly
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks("grunt-contrib-watch");
 
     //beautify
-    grunt.loadNpmTasks('grunt-prettify');
-    grunt.loadNpmTasks('grunt-jsbeautifier');
+    grunt.loadNpmTasks("grunt-prettify");
+    grunt.loadNpmTasks("grunt-jsbeautifier");
     // testing
-    grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks("grunt-karma");
 
 
 
-    grunt.registerTask('beauty', ['prettify', 'jsbeautifier']);
-    grunt.registerTask('build-js', ['copy', 'requirejs', 'ngmin', 'uglify']);
-    grunt.registerTask('build-html', ['htmlmin']);
-    grunt.registerTask('build-css', ['uncss']);
-    grunt.registerTask('build', ['build-js', 'build-html', "build-css"]);
+    grunt.registerTask("beauty", ["prettify", "jsbeautifier"]);
+    grunt.registerTask("build-js", ["copy", "requirejs", "ngmin", "uglify"]);
+    grunt.registerTask("build-html", ["htmlmin"]);
+    grunt.registerTask("build-css", ["uncss"]);
+    grunt.registerTask("build", ["build-js", "build-html", "build-css"]);
 
 
-    grunt.registerTask('dev', ['env:dev', 'preprocess:dev', "beauty"]);
-    grunt.registerTask('prod', ['env:dev', 'preprocess:dev', 'build-css', 'env:prod', 'preprocess:prod', "build"]);
+    grunt.registerTask("dev", ["env:dev", "preprocess:dev", "beauty"]);
+    grunt.registerTask("prod", ["env:dev", "preprocess:dev", "build-css", "env:prod", "preprocess:prod", "build"]);
 
-    grunt.registerTask('deploy', ['release:bump:patch', '', 'env:dev', 'preprocess:dev', 'release:commit:push:tag:pushTags']);
+    grunt.registerTask("bump", ["release:bump:patch"]);
+    grunt.registerTask("commit", ["release:commit"]);
 
-    grunt.registerTask('default', ['dev']);
+    grunt.registerTask("deploy", ["bump", "dev"]);
+
+    grunt.registerTask("test", ["karma:watch"]);
+
+    grunt.registerTask("default", ["dev"]);
 
 };
