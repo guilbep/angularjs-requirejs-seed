@@ -1,7 +1,7 @@
 {
   "homepage": "https://github.com/guilbep/angularjs-requirejs-seed",
   "name": "angularjs-requirejs-seed",
-  "version": null,
+  "version": "0.13.3",
   "description": "",
   "main": "index.html",
   "scripts": {
