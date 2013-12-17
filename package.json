@@ -1,13 +1,14 @@
 {
-  "name": "angularjs-requirejs-grunt-karma-seed",
+  "homepage": "https://github.com/guilbep/angularjs-requirejs-seed",
+  "name": "angularjs-requirejs-seed",
   "version": "0.1.2",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "devDependencies": {
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-requirejs": "~0.4.1",
@@ -21,6 +22,13 @@
     "grunt-env": "~0.4.0",
     "grunt-release": "~0.6.0",
     "grunt-uncss": "~0.1.5",
-    "grunt-release-steps": "~0.3.7"
+    "grunt-release-steps": "~0.3.7",
+    "grunt-karma": "latest",
+    "karma": "latest",
+    "karma-chrome-launcher": "latest",
+    "karma-firefox-launcher": "latest",
+    "karma-jasmine": "latest",
+    "karma-phantomjs-launcher": "latest",
+    "karma-requirejs": "latest"
   }
 }

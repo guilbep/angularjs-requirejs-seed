@@ -1,7 +1,7 @@
 {
   "name": "angular-requirejs-seed",
   "version": "0.0.0",
-  "homepage": "https://github.com/guilbep/angular-requirejs-seed",
+  "homepage": "https://github.com/guilbep/angularjs-requirejs-seed",
   "authors": [
     "Pierre Guilbert <contact@pierreguilbert.com>"
   ],
@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "angular": "latest",
-    "angular-mocks": "latest",
+    "angular-mocks": "~1.2.5",
     "angular-route": "latest",
     "angular-ui-router": "latest",
     "angular-resource": "latest",

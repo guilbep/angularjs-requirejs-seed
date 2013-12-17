@@ -126,6 +126,25 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        karma: {
+            unit: {
+                autoWatch: true,
+                configFile: './test/karma-unit.conf.js',
+                singleRun: false
+            },
+            ci: {
+                autoWatch: false,
+                configFile: './test/karma-unit.conf.js',
+                browsers: ['PhantomJS']
+            },
+            watch: {
+                background: true,
+                autoWatch: true,
+                configFile: './test/karma-unit.conf.js',
+                singleRun: false,
+                browsers: ['Chrome']
+            }
+        },
         watch: {
             html: {
                 // files: ['*.html'],
@@ -142,6 +161,10 @@ module.exports = function(grunt) {
                     interrupt: true
                 }
             },
+            karma: {
+                files: ['js/**/*.js', 'test/**/*.js'],
+                tasks: ['karma:unit:run']
+            }
         },
         "prettify": {
             options: {},
@@ -158,10 +181,10 @@ module.exports = function(grunt) {
         },
         "jsbeautifier": {
             "default": {
-                src: ["js/**/*.js", "*.js"]
+                src: ["js/**/*.js", "*.js", "test/**/*.js"]
             },
             "git-pre-commit": {
-                src: ["js/**/*.js"],
+                src: ["js/**/*.js", "*.js", "test/**/*.js"],
                 options: {
                     mode: "VERIFY_ONLY"
                 }
@@ -202,6 +225,8 @@ module.exports = function(grunt) {
     //beautify
     grunt.loadNpmTasks('grunt-prettify');
     grunt.loadNpmTasks('grunt-jsbeautifier');
+    // testing
+    grunt.loadNpmTasks('grunt-karma');
 
 
 
